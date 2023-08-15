@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Courses</title>
+    <link rel="stylesheet" type="text/css" href="/css/courses.css">
+
+</head>
+
+<body>
+    <% if (isAdmin){ %>
+        <nav class="navbar">
+            <h1>Courses</h1>
+            <ul>
+                <li><button id="create-class"><img
+                            src="https://cdn0.iconfinder.com/data/icons/ui-16px-perfect-megapack-line/16/82_Add-512.png"></button>
+                </li>
+                <li>
+                    <div class="dropdown">
+                        <span>
+                            <%= user.nickname %>
+                        </span>
+
+                </li>
+            </ul>
+        </nav>
+
+
+
+        <div class="all-courses">
+            <% allCourses.forEach(function(course) { %>
+
+                <div class="course">
+                    <a draggable="false" href="/courses/course/<%=course.courseID%>">
+                        <div class="course-template">
+                            <div class="course-template-text">
+
+                                <h1>
+                                    <%= course.courseName %>
+                                </h1>
+                                <p1>
+                                    <%= course.instructorName %>
+                                        </hp>
+                            </div>
+                            <div class="course-template-image">
+                                <img src="<%= user.picture %>">
+
+                            </div>
+
+                        </div>
+                        <div class="course-template-main">
+                            <p1>
+                                <%= course.description %>
+                            </p1>
+                            <div class="controls">
+
+                                <a class="course-edit-close-button edit-course-button"
+                                    href="/courses/edit/<%=course.courseID%>">Edit</a>
+                                <a class="course-edit-close-button delete-course-button"
+                                    href="/courses/delete/<%=course.courseID%>">Delete</a>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <% }) %>
+        </div>
+
+        <div id="form-background"></div>
+        <div id="form-content">
+            <button id="close-create-form">X</button>
+            <form method="post" action="/courses" autocomplete="off">
+                <label for="courseName">Course Name</label>
+                <input required type="text" name="courseName" autocomplete="off">
+                <label for="courseDesc">Course Description</label>
+                <textarea required type="text" name="courseDesc" autocomplete="off" maxlength="121"></textarea>
+
+                <button type="submit">Create course.</button>
+            </form>
+        </div>
+        <script>
+
+
+            document.getElementById("close-create-form").addEventListener("click", function () {
+
+                document.getElementById("form-background").style.display = 'none';
+                document.getElementById("form-content").style.display = 'none';
+
+            })
+
+            document.getElementById("form-background").addEventListener("click", function () {
+
+                document.getElementById("form-background").style.display = 'none';
+                document.getElementById("form-content").style.display = 'none';
+
+            })
+
+            document.getElementById("create-class").addEventListener("click", function () {
+
+                document.getElementById("form-background").style.display = 'block';
+                document.getElementById("form-content").style.display = 'block';
+            })
+
+        </script>
+
+        <% } else { %>
+            <nav class="navbar">
+                <h1>Courses</h1>
+                <ul>
+                    <li><button id="join-class"><img
+                                src="https://cdn0.iconfinder.com/data/icons/ui-16px-perfect-megapack-line/16/82_Add-512.png"></button>
+                    </li>
+                    <li>
+                        <div class="dropdown">
+                            <span>
+                                <%= user.nickname %>
+                            </span>
+
+                    </li>
+                </ul>
+            </nav>
+
+
+
+            <div class="all-courses">
+                <% allCourses.forEach(function(course) { %>
+
+                    <div class="course">
+                        <a draggable="false" href="/courses/course/<%=course.courseID%>">
+                            <div class="course-template">
+                                <div class="course-template-text">
+
+                                    <h1>
+                                        <%= course.courseName %>
+                                    </h1>
+                                    <p1>
+                                        <%= course.instructorName %>
+                                            </hp>
+                                </div>
+                                <div class="course-template-image">
+                                    <img src="<%= course.instructorImage %>">
+
+                                </div>
+
+                            </div>
+                            <div class="course-template-main">
+                                <p1>
+                                    <%= course.description %>
+                                </p1>
+                                <div class="controls">
+
+                                    <a class="course-edit-close-button delete-course-button"
+                                        href="/courses/leave/<%=course.courseID%>">Leave Class</a>
+                                </div>
+
+                            </div>
+                        </a>
+                    </div>
+
+                    <% }) %>
+            </div>
+
+            <div id="form-background-student"></div>
+            <div id="form-content-student">
+                <button id="close-create-form-student">X</button>
+                <form method="post" action="/courses/join/<%=user.email%>" autocomplete="off">
+                    <label for="classCode">Course ID</label>
+                    <input required type="text" name="classCode" autocomplete="off">
+                    <button type="submit">Join course</button>
+                </form>
+            </div>
+            <script>
+
+
+
+                document.getElementById("close-create-form-student").addEventListener("click", function () {
+
+                    document.getElementById("form-background-student").style.display = 'none';
+                    document.getElementById("form-content-student").style.display = 'none';
+                    d
+                })
+
+                document.getElementById("join-class").addEventListener("click", function () {
+                    console.log("clicked")
+                    document.getElementById("form-background-student").style.display = 'block';
+                    document.getElementById("form-content-student").style.display = 'block';
+                })
+
+                document.getElementById("form-background-student").addEventListener("click", function () {
+
+                    document.getElementById("form-background-student").style.display = 'none';
+                    document.getElementById("form-content-student").style.display = 'none';
+
+                })
+
+
+
+
+            </script>
+            <% }%>
+
+
+
+
+
+
+
+</body>
+
+</html>

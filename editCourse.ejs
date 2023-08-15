@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Course - <%= course.courseName%>
+    </title>
+</head>
+
+<body>
+
+    <form action="/courses/edit/<%= course.courseID%>" method="post">
+        <label for="newName">Update Course Name</label>
+        <input required type="text" name="newName" value="<%= course.courseName %>">
+        <label for="newDesc">Update Course Description</label>
+        <input required type="text" name="newDesc" value="<%= course.description %>">
+        <button type="submit">Submit Changes</button>
+    </form>
+
+    <div id="form-background-invite"></div>
+        <div id="form-content-invite">
+            <form method="post" action="/courses/invite/<%=course.courseID%>" autocomplete="off">
+                <label for="userEmail">Course Name</label>
+                <input required type="text" name="userEmail" autocomplete="off">
+                <button type="submit">Create course.</button>
+            </form>
+        </div>
+
+       
+</body>
+
+</html>

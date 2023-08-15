@@ -1,0 +1,367 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@500&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  background-color: rgb(220, 220, 220);
+}
+
+/* nav bar*/
+
+nav {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgb(239, 239, 239);
+  font-family: Rubik;
+  padding: 1em;
+  color: rgb(21, 21, 21);
+  filter: drop-shadow(5px -1px 3px #000);
+  position: fixed;
+  box-sizing: border-box;
+}
+
+ul {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  padding: 0.5em;
+}
+
+nav img {
+  width: 12px;
+
+
+}
+
+/* course list */
+.all-courses{
+  padding-top: 90px;
+}
+.course {
+  width: 30%;
+  
+  box-sizing: border-box;
+  font-family: Rubik;
+  background-color: rgb(239, 239, 239);
+
+
+
+
+}
+
+.course-template {
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  
+  padding: 1em;
+  align-items: center;
+  background-color: red;
+  background: url(https://res.cloudinary.com/grand-canyon-university/image/fetch/w_750,h_564,c_fill,g_faces,q_auto/https://www.gcu.edu/sites/default/files/images/articles/df44a5bfec32ecd8011755452d7bed35043923e5.jpg);
+  background-size: cover;
+  box-shadow: inset 0 0 0 2000px rgba(255, 0, 150, 0.3);
+
+}
+
+.course-template-image img {
+
+  border-radius: 50%;
+  width: 60px;
+  -webkit-user-drag: none;
+}
+
+
+.course-template-main {
+  max-width: 100%;
+  overflow: hidden;
+
+
+  padding: 1.2em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+
+.all-courses {
+  margin-top: 3%;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: calc(100% - 16px);
+  margin: 0 auto;
+  gap: 16px;
+}
+
+/* course buttons */
+.controls {
+  display: table;
+  margin-left: auto;
+  padding-top: 40px;
+  
+  
+
+}
+.course-edit-close-button {
+  text-decoration: none;
+  padding: .3em;
+  color: white;
+  border-radius: 6px;
+
+
+}
+
+.edit-course-button {
+  background-color: rgb(93, 93, 93);
+  padding: .6em;
+  font-size: .8rem;
+
+}
+.delete-course-button {
+  margin-left: 5px;
+  background-color: rgb(211, 17, 56);
+  padding: .6em;
+  font-size: .8rem;
+
+}
+
+
+a{
+  text-decoration: none;
+  color: black;
+  list-style-type: none;
+  all: unset;
+
+  
+}
+
+
+
+/*dropdown menu */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #ff0000;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  padding: 12px 16px;
+  z-index: 1;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+
+
+#join-class {
+  background-color: transparent;
+  border: none;
+}
+
+#join-class:hover {
+  cursor: pointer;
+}
+
+#create-class {
+  background-color: transparent;
+  border: none;
+}
+
+#create-class:hover {
+  cursor: pointer;
+}
+
+/* Create class form */
+#form-background {
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(5px);
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 2, 19, 0.8);
+  position: fixed; /* Change from "absolute" to "fixed" */
+  display: none;
+  top: 0;
+  left: 0;
+  z-index: 9999; /* Add a high z-index to ensure it's on top of other content */
+  backdrop-filter: blur(60px);
+}
+
+#form-content {
+  backdrop-filter: blur(6px);
+  padding: 2em;
+  width: 40%;
+  position: fixed; /* Change from "absolute" to "fixed" */
+  top: 50%;
+  left: 50%;
+  display: none;
+  flex-direction: column;
+  align-items: flex-start;
+  font-family: Rubik;
+  transform: translate(-50%, -50%);
+  background-color: rgb(235, 235, 235);
+  z-index: 10000; /* Add a higher z-index than #form-background */
+}
+#form-content input {
+  box-sizing: border-box;
+  display: block;
+  width: 100%;
+  padding: .4em;
+  font-size: 1.2rem;
+}
+
+#form-content textarea {
+  box-sizing: border-box;
+  padding: .6em;
+  white-space: pre-wrap;
+  display: block;
+  padding: .4em;
+  font-size: 1.2rem;
+  width: 100%;
+  resize: none;
+  border: none;
+}
+
+#form-content button:nth-child(1) {
+  width: 10%;
+  margin-left: auto;
+  display: block;
+  padding: .6em;
+  border-radius: 5px;
+  background-color: rgb(216, 26, 26);
+  color: white;
+  border: none;
+}
+
+#form-content button:hover {
+  cursor: pointer;
+}
+
+#form-content form button {
+  padding: .8em;
+  display: block;
+  background-color: rgb(70, 188, 30);
+  border-radius: 5px;
+  margin-top: 16px;
+  color: white;
+  border: none;
+}
+
+
+#form-content label{
+  display: inline-block;
+  padding: .6em;
+}
+#form-content input:focus{
+  outline: none;
+}
+#form-content textarea:focus{
+  outline: none;
+}
+
+
+
+
+
+
+
+
+#form-background-student {
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(5px);
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 2, 19, 0.8);
+  position: fixed; /* Change from "absolute" to "fixed" */
+  display: none;
+  top: 0;
+  left: 0;
+  z-index: 9999; /* Add a high z-index to ensure it's on top of other content */
+  backdrop-filter: blur(60px);
+}
+
+#form-content-student {
+
+  padding: 2em;
+  width: 40%;
+  position: fixed; /* Change from "absolute" to "fixed" */
+  top: 50%;
+  left: 50%;
+  display: none;
+  flex-direction: column;
+  align-items: flex-start;
+  font-family: Rubik;
+  transform: translate(-50%, -50%);
+  background-color: rgb(235, 235, 235);
+  z-index: 10000; /* Add a higher z-index than #form-background */
+}
+#form-content-student input {
+  box-sizing: border-box;
+  display: block;
+  width: 100%;
+  padding: .4em;
+  font-size: 1.2rem;
+}
+
+#form-content-student textarea {
+  box-sizing: border-box;
+  padding: .6em;
+  white-space: pre-wrap;
+  display: block;
+  padding: .4em;
+  font-size: 1.2rem;
+  width: 100%;
+  resize: none;
+  border: none;
+}
+
+#form-content-student button:nth-child(1) {
+  width: 10%;
+  margin-left: auto;
+  display: block;
+  padding: .6em;
+  border-radius: 5px;
+  background-color: rgb(216, 26, 26);
+  color: white;
+  border: none;
+}
+
+#form-content-student button:hover {
+  cursor: pointer;
+}
+
+#form-content-student form button {
+  padding: .8em;
+  display: block;
+  background-color: rgb(70, 188, 30);
+  border-radius: 5px;
+  margin-top: 16px;
+  color: white;
+  border: none;
+}
+
+
+#form-content-student label{
+  display: inline-block;
+  padding: .6em;
+}
+#form-content-student input:focus{
+  outline: none;
+}
+#form-content-student textarea:focus{
+  outline: none;
+}
